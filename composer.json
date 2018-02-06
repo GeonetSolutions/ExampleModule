@@ -1,0 +1,23 @@
+{
+    "name": "geonetsolutions/examplemodule",
+    "description": "Example Module to Plug Into the PLatform Base",
+    "authors": [
+        {
+            "name": "Olly Warren",
+            "email": "olly@geonetsolutions.co.uk"
+        }
+    ],
+    "require": {
+        "symfony/yaml": "^3.4"
+    },
+    "extra": {
+        "branch-alias": {},
+        "laravel": {
+            "providers": [
+                "GeonetSolutions\\ExampleModule\\ExampleModuleServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

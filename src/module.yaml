@@ -1,0 +1,5 @@
+name: Example Module
+version: 1.0
+author: Olly Warren
+description: An Example Module to devlop some kind of module registration service.
+provider: GeonetSolutions\ExampleModule\ExampleModuleServiceProvider
