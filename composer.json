@@ -30,8 +30,8 @@
         "post-install-cmd": [
             "GeonetSolutions\\ExampleModule\\ModuleRegistration::postInstall"
         ],
-        "post-package-update": [
-            "GeonetSolutions\\ExampleModule\\ModuleRegistration::postUpdate"
+        "post-update-cmd": [
+            "GeonetSolutions\\ExampleModule\\ModuleRegistration::postInstall"
         ]
     }
 }
