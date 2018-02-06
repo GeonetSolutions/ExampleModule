@@ -7,6 +7,11 @@
             "email": "olly@geonetsolutions.co.uk"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "GeonetSolutions\\ExampleModule\\": "src/"
+        }
+    },
     "require": {
         "symfony/yaml": "^3.4"
     },
