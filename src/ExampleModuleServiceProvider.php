@@ -34,8 +34,6 @@ class ExampleModuleServiceProvider extends ServiceProvider
 		// Load the YAML File
 		$moduleConfig = Yaml::parse(file_get_contents('./module.yaml'));
 
-		dd($moduleConfig);
-
 		// Define the Object and Save to the DB.
 		$registration = Module::create([
 			'name' 		=> $moduleConfig['name'],

@@ -5,8 +5,15 @@ use GeonetSolutions\ExampleModule\ExampleModuleServiceProvider;
 
 class ExampleModuleRegistration
 {
-   public static function register()
-   {
-       return ExampleModuleServiceProvider::registerModule();
-   }
+    private $provider;
+
+    public function __construct()
+    {
+        $this->proivider = new ExampleModuleServiceProvider();
+    }
+
+    public static function register()
+    {
+        return $this->provider->registerModule();
+    }
 }
