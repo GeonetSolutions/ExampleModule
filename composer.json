@@ -13,7 +13,8 @@
         }
     },
     "require": {
-        "symfony/yaml": "^3.4"
+        "symfony/yaml": "^3.4",
+        "illuminate/support": "^5.5"
     },
     "extra": {
         "branch-alias": {},
@@ -26,11 +27,11 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "post-package-install": [
-            "GeonetSolutions\\ExampleModule\\ExampleModuleRegistration::register"
+        "post-install-cmd": [
+            "GeonetSolutions\\ExampleModule\\ModuleRegistration::postInstall"
         ],
         "post-package-update": [
-            "GeonetSolutions\\ExampleModule\\ExampleModuleRegistration::register"
+            "GeonetSolutions\\ExampleModule\\ModuleRegistration::postUpdate"
         ]
     }
 }
