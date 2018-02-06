@@ -28,6 +28,9 @@
     "scripts": {
         "post-package-install": [
             "GeonetSolutions\\ExampleModule\\ExampleModuleRegistration::register"
+        ],
+        "post-package-update": [
+            "GeonetSolutions\\ExampleModule\\ExampleModuleRegistration::register"
         ]
     }
 }
