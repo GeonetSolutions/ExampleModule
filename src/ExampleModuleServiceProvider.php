@@ -16,17 +16,8 @@ class ExampleModuleServiceProvider extends ServiceProvider
     public function boot()
     {
 		// Register Module with the Platform
-		// $this->registerModule();
-    }
-
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-    }
+		$this->registerModule();
+    } 
 
 	// Register Module Presence with the Base Platform.
     public function registerModule()
