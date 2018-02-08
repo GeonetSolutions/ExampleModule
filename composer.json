@@ -26,12 +26,5 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "scripts": {
-        "post-install-cmd": [
-            "GeonetSolutions\\ExampleModule\\ModuleRegistration::postInstall"
-        ],
-        "post-update-cmd": [
-            "GeonetSolutions\\ExampleModule\\ModuleRegistration::postInstall"
-        ]
-    }
+    "scripts": {}
 }
