@@ -8,6 +8,14 @@ use GeonetSolutions\PlatformBase\Module;
 
 class ExampleModuleServiceProvider extends ServiceProvider
 {
+
+	protected $configuration;
+
+	public function __construct()
+	{
+		$this->configuration = Yaml::parse( file_get_contents(__DIR__ . '/module.yaml') );
+	}
+
     /**
      * Bootstrap the application services.
      *
@@ -15,21 +23,30 @@ class ExampleModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-		// Register Module with the Platform
-		$this->registerModule();
-    } 
+		
+	}
+
+	public function register()
+	{
+		if( ! $this->registerCheck() ){
+			$this->registerModule();
+		}
+	}
+	
+	public function registerCheck()
+	{
+		$module = Module::where('name', $this->configuration['name'])->count();
+		return $module > 0;
+	}
 
 	// Register Module Presence with the Base Platform.
     public function registerModule()
     {
-		// Load the YAML File
-		$moduleConfig = Yaml::parse( file_get_contents(__DIR__ . '/module.yaml') );
-
 		// Define the Object and Save to the DB.
 		$registration = Module::create([
-			'name' 		=> $moduleConfig['name'],
-			'version'	=> $moduleConfig['version'],
-			'provider'  => $moduleConfig['provider'],
+			'name' 		=> $this->configuration['name'],
+			'version'	=> $this->configuration['version'],
+			'provider'  => $this->configuration['provider'],
 			'installed' => false,
 		]);
 	}
