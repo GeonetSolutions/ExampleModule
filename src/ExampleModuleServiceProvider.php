@@ -8,9 +8,16 @@ use GeonetSolutions\PlatformBase\Module;
 
 class ExampleModuleServiceProvider extends ServiceProvider
 {
-
+	/**
+	 * Module Configuration
+	 *
+	 * @var Array
+	 */
 	protected $configuration;
 
+	/**
+	 * Constructor
+	 */
 	public function __construct()
 	{
 		$this->configuration = Yaml::parse( file_get_contents(__DIR__ . '/module.yaml') );
@@ -27,19 +34,23 @@ class ExampleModuleServiceProvider extends ServiceProvider
 			$this->registerModule();
 		}
 	}
-
-	public function register()
-	{
-
-	}
 	
+	/**
+	 * Check if this Module is Already Registered
+	 *
+	 * @return bool
+	 */
 	public function registerCheck()
 	{
 		$module = Module::where('name', $this->configuration['name'])->count();
 		return $module > 0;
 	}
 
-	// Register Module Presence with the Base Platform.
+	/**
+	 * Store our Registration in the Database.
+	 *
+	 * @return void
+	 */
     public function registerModule()
     {
 		// Define the Object and Save to the DB.
@@ -51,11 +62,25 @@ class ExampleModuleServiceProvider extends ServiceProvider
 		]);
 	}
 	
-	// Install Method
+	/**
+	 * Installs the Module as Required
+	 *
+	 * @return void
+	 */
 	public function installModule()
 	{
 		// Run Migrations
 		// Publish Configs
 		// Seed Data
+	}
+
+	/**
+	 * Uninstalls the Module.
+	 *
+	 * @return void
+	 */
+	public function uninstallModule()
+	{
+
 	}
 }
