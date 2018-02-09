@@ -23,14 +23,14 @@ class ExampleModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-		
+		if( ! $this->registerCheck() ){
+			$this->registerModule();
+		}
 	}
 
 	public function register()
 	{
-		if( ! $this->registerCheck() ){
-			$this->registerModule();
-		}
+
 	}
 	
 	public function registerCheck()
